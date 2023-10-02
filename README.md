@@ -1,7 +1,7 @@
 ﻿# banco-de-dados-FUNCOES
 
 CREATE TABLE nomes (
-    nome VARCHAR(255)
+    nome VARCHAR(50)
 );
 
 INSERT INTO nomes (nome)
