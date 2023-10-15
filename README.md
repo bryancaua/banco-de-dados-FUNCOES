@@ -80,5 +80,9 @@ end;
 delimiter ;
 
 select total_valor(49.70, 20) as total;
+select total_valor(239.9999, 200) as total;
+select total_valor (28.9999, 50) as total;
+select total_valor (81.9999, 100) as total;
+select total_valor (17.9999, 120) as total;
 
 
