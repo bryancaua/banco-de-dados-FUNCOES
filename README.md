@@ -85,4 +85,21 @@ select total_valor (28.9999, 50) as total;
 select total_valor (81.9999, 100) as total;
 select total_valor (17.9999, 120) as total;
 
+-- exer 6
+
+select count(produto) as total from produtos;
+
+
+select produto, preco
+from produtos
+where preco = (select max(preco) from produtos);
+
+
+select produto, preco
+from produtos
+where preco = (select min(preco) from produtos);
+
+
+select sum(if(quantidade > 0, preco * quantidade, 0)) as soma
+from produtos;
 
