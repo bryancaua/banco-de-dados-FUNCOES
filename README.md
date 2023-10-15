@@ -103,3 +103,72 @@ where preco = (select min(preco) from produtos);
 select sum(if(quantidade > 0, preco * quantidade, 0)) as soma
 from produtos;
 
+-- exer 7
+
+delimiter //
+create function numero_fatorial(nu int) returns int deterministic
+begin
+    declare fat int;
+    set fat = 1;
+    while nu > 0 do
+        set fat = fat * nu;
+	set nu = nu - 1;
+    end while;
+    
+return fat;
+end;
+//
+delimiter ;
+
+select numero_fatorial(4) as fatorial;
+
+
+delimiter //
+create function mat_exponencial (base int, expoente int)
+returns int
+deterministic
+begin
+    declare numero int;
+    set numero = 1;
+
+while expoente > 0 do
+	set numero = numero * base;
+    set expoente = expoente - 1;
+end while;
+
+ return numero;
+end;
+//
+delimiter ;
+
+select mat_exponencial(8, 2) as exponencial;
+
+
+delimiter //
+
+create function e_palindromo(palavra varchar(225))
+returns int
+deterministic
+begin
+    declare tamanho int;
+    declare i int;
+    
+ set tamanho = length(palavra);
+ set i = 1;
+    
+while i <= tamanho / 2 do
+    if substring(palavra, i, 1) != substring(palavra, tamanho - i + 1, 1) then
+        return 0;
+    end if;
+     set i = i + 1;
+  end while;
+    
+return 1;
+end;
+//
+
+delimiter ;
+
+select e_palindromo('Arara') as resultado; 
+select e_palindromo('Pera') as resultado;
+
