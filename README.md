@@ -20,3 +20,17 @@ WHEN nome LIKE '%a' THEN CONCAT('Sra. ', nome)
 ELSE CONCAT('Sr. ', nome)
 END AS tratamento
 FROM nomes;
+
+CREATE TABLE produtos (
+    produto VARCHAR(50),
+    preco DECIMAL(10, 2),
+    quantidade INT
+); 
+
+SELECT produto, preco, ABS(quantidade) AS quantidade_absoluta
+FROM produtos;
+
+SELECT AVG(preco) AS media_precos
+FROM produtos;
+
+
