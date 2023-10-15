@@ -67,3 +67,18 @@ select
 from produtos;
 
 
+-- exer 5
+
+delimiter //
+create function total_valor(preco decimal(10, 2), quantidade int) returns decimal(10, 2) deterministic
+begin
+declare va_total decimal(10, 2);
+set v_total = preco * quantidade;
+return va_total;
+end;
+// 
+delimiter ;
+
+select total_valor(49.70, 20) as total;
+
+
